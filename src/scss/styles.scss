@@ -1,21 +1,91 @@
 // Note: any .css or .scss files included in the 'styles' directory
 // will be correctly compiled during `gulp` and `gulp production`
-
 //* Vendors *//
-@import './node_modules/include-media/dist/include-media';
-
-
+@import "./node_modules/include-media/dist/include-media";
 //* Abstracts modules *//
-@import 'abstracts/main';
-
+@import "abstracts/main";
 //* Base modules *//
-@import 'base/main';
-
+@import "base/main";
 //* Layout modules *//
-@import 'layout/main';
-
+@import "layout/main";
 //* Pages modules *//
-@import 'pages/main';
-
+@import "pages/main";
 //* Components *//
-@import 'components/main';
+@import "components/main";
+
+/* Basic Styles optimized for Mobile tactility */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+input {
+  display: block;
+  width: 100%;
+  height: 44px;
+  padding: 4px 10px;
+  border: 1px solid #efefef;
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+
+input:disabled {
+  background-color: #efefef;
+  cursor: not-allowed;
+}
+
+label {
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.c-address-search {
+  width: 100%;
+}
+
+.c-address-search input {
+  margin: 10px;
+}
+
+.form-address {
+  margin: 10px;
+}
+
+.flex-container {
+  width: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  margin-bottom: 5px;
+}
+
+.flex-item {
+  -webkit-flex: 1 1;
+  flex: 1 1;
+  margin: 10px 0;
+}
+
+.c-1column {
+  width: 100%;
+}
+
+.c-2column {
+  width: 50%;
+  margin-right: 10px;
+}
+
+.c-2column:last-child {
+  margin-right: 0;
+}
