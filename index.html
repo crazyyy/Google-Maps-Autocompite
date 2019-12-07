@@ -13,17 +13,73 @@
 <body>
   <div class="wrapper">
     <div class="entry-section" id="container">
-
       <form class="form-address" id="address">
+
+        <div class="flex-container">
+          <label>Phone</label>
+          <div class="flex-item c-2column">
+            <input id="phone" value="" name="phone" type="tel" placeholder="Phone" pattern="[0-9]{3} [0-9]{3}(-)[0-9]{4}" maxlength="12" title="Ten digits code" required />
+            <i class="errorTxt"></i>
+          </div>
+          <div class="flex-item c-2column">
+            <select id="date-month" required>
+              <option value="0">Month</option>
+            </select>
+            <select id="date-day" required>
+              <option value="0" >Day</option>
+            </select>
+            <select id="date-year" required>
+              <option value="0" >Year</option>
+            </select>
+            <i class="errorTxt"></i>
+          </div>
+        </div>
 
         <!-- Search Field -->
         <div class="flex-container c-1column" id="locationField">
           <label>Search for your address</label>
-          <input class="flex-item" id="autocomplete" placeholder="address, zip or city" onFocus="geolocate()" type="text"></input>
+          <input class="flex-item" id="autocomplete" placeholder="address, zip or city" type="text"></input>
+        </div>
+
+        <!-- Street Address -->
+        <div class="flex-container">
+          <label>Street address</label>
+          <div class="flex-item c-2column">
+            <input id="street_number" required></input>
+          </div>
+          <div class="flex-item c-2column">
+            <input id="route" required>
+            </input>
+          </div>
+        </div>
+
+        <!-- City -->
+        <div class="flex-container">
+          <label>City</label>
+          <input class="flex-item c-1column" id="locality" required></input>
+        </div>
+
+        <!-- State & Zip -->
+        <div class="flex-container">
+          <div class="flex-item c-2column">
+            <label>State</label>
+            <input id="administrative_area_level_1" required></input>
+          </div>
+
+          <div class="flex-item c-2column">
+            <label>Zip code</label>
+            <input id="postal_code" value="" title="Enter valid ZIP 4-5 numbers" required></input>
+            <i class="errorTxt"></i>
+          </div>
+        </div>
+
+        <!-- Country -->
+        <div class="flex-container">
+          <label>Country</label>
+          <input class="flex-item c-1column" id="country" required></input>
         </div>
 
       </form>
-
     </div>
     
   </div>
