@@ -9,13 +9,13 @@
       </div>
       <div class="flex-item c-2column">
         <select id="date-month" required>
-          <option value="0">Month</option>
+          <option value="">Month</option>
         </select>
         <select id="date-day" required>
-          <option value="0" >Day</option>
+          <option value="">Day</option>
         </select>
         <select id="date-year" required>
-          <option value="0" >Year</option>
+          <option value="">Year</option>
         </select>
         <i class="errorTxt"></i>
       </div>
@@ -25,7 +25,7 @@
     <div class="flex-container c-1column" id="locationField">
       <label>Search for your address</label>
       <input class="flex-item" value="" id="autocomplete" placeholder="address, zip or city" type="text" required>
-      <a href="#" id="autocomplete-edit-btn">edit</a>
+      <button type="button" id="action-edit">edit</a>
     </div>
     <div id="autocomplete-edit">
       <!-- Street Address -->
@@ -66,53 +66,51 @@
       </div>
       <div class="flex-container">
         <div class="flex-item c-2column">
-          <a href="#">reset</a>
-        </div>
-        <div class="flex-item c-2column">
-          <a href="#">Save</a>
-        </div>
-      </div>
-
+          <button type="button" id="action-reset">reset</button>
     </div>
+    <div class="flex-item c-2column">
+      <button type="button" id="action-save">Save</button>
+    </div>
+</div>
 
-    <!-- County and Court of Violation -->
-    <div class="flex-container">
-      <div class="flex-item c-2column">
-        <label>County of Violation: *</label>
-        <select class="w-100" name="county" id="county">
-          <option value="" disabled selected>Select County</option>
-          <option value="LA County">LA County</option>
-        </select>
-        <label>Law Enforcement Agency (LEA): *</label>
-        <select class="w-100" name="lea" id="lea" disabled>
+</div>
+
+<!-- County and Court of Violation -->
+<div class="flex-container">
+  <div class="flex-item c-2column">
+    <label>County of Violation: *</label>
+    <input class="w-100" name="county" id="county" type="text" placeholder="Select County">
+    <label>Law Enforcement Agency (LEA): *</label>
+    <select class="w-100" name="lea" id="lea" disabled>
           <option value="" disabled selected>Select Court</option>
           <option value="Alameda Court">Alameda Court</option>
         </select>
-      </div>
-      <div class="flex-item c-2column">
-        <label>Court of Violation: *</label>
-        <select class="w-100" name="court" id="court" disabled>
+  </div>
+  <div class="flex-item c-2column">
+    <label>Court of Violation: *</label>
+    <select class="w-100" name="court" id="court" disabled>
           <option value="" disabled selected>Select Court</option>
         </select>
-      </div>
-    </div>
+  </div>
+</div>
 
-    <!-- Case Number -->
-    <div class="flex-container">
-      <div class="flex-item c-2column">
-        <label>Case Number: *</label>
-        <input type="text" id="case-number" value="092769302" name="case-number" placeholder="e.g. 092769302">
-      </div>
-      <div class="flex-item c-2column">
-        <p><i>If you have a citation number AND a case or docket number, we suggest using the case or docket number.</i></p>
-      </div>
-    </div>
+<!-- Case Number -->
+<div class="flex-container">
+  <div class="flex-item c-2column">
+    <label>Case Number: *</label>
+    <input type="text" id="case-number" value="092769302" name="case-number" placeholder="e.g. 092769302">
+  </div>
+  <div class="flex-item c-2column">
+    <p><i>If you have a citation number AND a case or docket number, we suggest using the case or docket number.</i>
+    </p>
+  </div>
+</div>
 
-    <!-- Driver's License State & Number -->
-    <div class="flex-container">
-      <div class="flex-item c-2column">
-        <label>Driver’s License State: *</label>
-        <select class="w-100" name="license-state" id="license-state">
+<!-- Driver's License State & Number -->
+<div class="flex-container">
+  <div class="flex-item c-2column">
+    <label>Driver’s License State: *</label>
+    <select class="w-100" name="license-state" id="license-state">
           <option value="" selected="selected">Select a State</option>
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
@@ -166,17 +164,17 @@
           <option value="WI">Wisconsin</option>
           <option value="WY">Wyoming</option>
         </select>
-      </div>
-      <div class="flex-item c-2column">
-        <label>Driver’s License Number: *</label>
-        <input type="text" id="license-number" name="license-number" placeholder="e.g. DL05876">
-      </div>
-    </div>
+  </div>
+  <div class="flex-item c-2column">
+    <label>Driver’s License Number: *</label>
+    <input type="text" id="license-number" name="license-number" placeholder="e.g. DL05876">
+  </div>
+</div>
 
-    <!-- Submit -->
-    <div class="flex-container">
-      <button type="submit">Save</button>
-    </div>
+<!-- Submit -->
+<div class="flex-container">
+  <button id="submit" type="submit">Save</button>
+</div>
 
-  </form>
+</form>
 </div>
