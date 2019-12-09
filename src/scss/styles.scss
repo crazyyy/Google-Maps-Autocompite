@@ -89,3 +89,13 @@ label {
 .c-2column:last-child {
   margin-right: 0;
 }
+.w-100 {
+    width: 100%;
+}
+select {
+    height: 44px;
+    box-sizing: border-box;
+    border: 1px solid #999;
+    padding: 0.4em 0.7em;
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+}

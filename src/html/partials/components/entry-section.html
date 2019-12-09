@@ -4,7 +4,7 @@
     <div class="flex-container">
       <label>Phone</label>
       <div class="flex-item c-2column">
-        <input id="phone" value="" name="phone" type="tel" placeholder="Phone" pattern="[0-9]{3} [0-9]{3}(-)[0-9]{4}" maxlength="12" title="Ten digits code" required />
+        <input id="phone" value="888 888-8888" name="phone" type="tel" placeholder="Phone" pattern="[0-9]{3} [0-9]{3}(-)[0-9]{4}" maxlength="12" title="Ten digits code" required />
         <i class="errorTxt"></i>
       </div>
       <div class="flex-item c-2column">
@@ -24,45 +24,101 @@
     <!-- Search Field -->
     <div class="flex-container c-1column" id="locationField">
       <label>Search for your address</label>
-      <input class="flex-item" id="autocomplete" placeholder="address, zip or city" type="text"></input>
+      <input class="flex-item" value="" id="autocomplete" placeholder="address, zip or city" type="text" required>
+      <a href="#" id="autocomplete-edit-btn">edit</a>
     </div>
-
-    <!-- Street Address -->
-    <div class="flex-container">
-      <label>Street address</label>
-      <div class="flex-item c-2column">
-        <input id="street_number" required></input>
-      </div>
-      <div class="flex-item c-2column">
-        <input id="route" required>
-        </input>
-      </div>
-    </div>
-
-    <!-- City -->
-    <div class="flex-container">
-      <label>City</label>
-      <input class="flex-item c-1column" id="locality" required></input>
-    </div>
-
-    <!-- State & Zip -->
-    <div class="flex-container">
-      <div class="flex-item c-2column">
-        <label>State</label>
-        <input id="administrative_area_level_1" required></input>
+    <div id="autocomplete-edit">
+      <!-- Street Address -->
+      <div class="flex-container">
+        <label>Street address</label>
+        <div class="flex-item c-2column">
+          <input id="street_number" required>
+        </div>
+        <div class="flex-item c-2column">
+          <input id="route" required>
+        </div>
       </div>
 
+      <!-- City -->
+      <div class="flex-container">
+        <label>City</label>
+        <input class="flex-item c-1column" id="locality" required>
+      </div>
+
+      <!-- State & Zip -->
+      <div class="flex-container">
+        <div class="flex-item c-2column">
+          <label>State</label>
+          <input id="administrative_area_level_1" required>
+        </div>
+
+        <div class="flex-item c-2column">
+          <label>Zip code</label>
+          <input id="postal_code" value="" title="Enter valid ZIP 4-5 numbers" required>
+          <i class="errorTxt"></i>
+        </div>
+      </div>
+
+      <!-- Country -->
+      <div class="flex-container">
+        <label>Country</label>
+        <input class="flex-item c-1column" id="country" required>
+      </div>
+      <div class="flex-container">
+        <div class="flex-item c-2column">
+          <a href="#">reset</a>
+        </div>
+        <div class="flex-item c-2column">
+          <a href="#">Save</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- County and Court of Violation -->
+    <div class="flex-container">
       <div class="flex-item c-2column">
-        <label>Zip code</label>
-        <input id="postal_code" value="" title="Enter valid ZIP 4-5 numbers" required></input>
-        <i class="errorTxt"></i>
+        <label>County of Violation: *</label>
+        <select class="w-100" name="county" id="county">
+          <option value="" disabled selected>Select County</option>
+        </select>
+      </div>
+      <div class="flex-item c-2column">
+        <label>Court of Violation: *</label>
+        <select class="w-100" name="court" id="court" disabled>
+          <option value="" disabled selected>Select Court</option>
+        </select>
       </div>
     </div>
 
-    <!-- Country -->
+    <!-- Case Number -->
     <div class="flex-container">
-      <label>Country</label>
-      <input class="flex-item c-1column" id="country" required></input>
+      <div class="flex-item c-2column">
+        <label>Case Number: *</label>
+        <input type="text" id="case-number" name="case-number" placeholder="e.g. 092769302">
+      </div>
+      <div class="flex-item c-2column">
+        <p><i>If you have a citation number AND a case or docket number, we suggest using the case or docket number.</i></p>
+      </div>
+    </div>
+
+    <!-- Driver's License State & Number -->
+    <div class="flex-container">
+      <div class="flex-item c-2column">
+        <label>Driver’s License State: *</label>
+        <select class="w-100" name="license-state" id="license-state">
+          <option value="" disabled selected>Select State</option>
+        </select>
+      </div>
+      <div class="flex-item c-2column">
+        <label>Driver’s License Number: *</label>
+        <input type="text" id="license-number" name="license-number" placeholder="e.g. DL05876">
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <div class="flex-container">
+      <button type="submit">Save</button>
     </div>
 
   </form>

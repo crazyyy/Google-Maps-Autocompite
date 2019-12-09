@@ -3,6 +3,18 @@
 
 let placeSearch;
 let autocomplete;
+let autoCompleteBox = document.getElementById('autocomplete-edit');
+let autoCompleteBtn = document.getElementById('autocomplete-edit-btn');
+function hideAutoCompleteEdit() {
+  autoCompleteBox.style.display = 'none';
+}
+
+function showAutoCompleteEdit() {
+  autoCompleteBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    autoCompleteBox.style.display = 'block';
+  });
+}
 const componentForm = {
   street_number: 'short_name',
   route: 'long_name',
@@ -29,9 +41,11 @@ function initialize() {
 
   const autocompleteinput = document.getElementById('autocomplete');
   autocompleteinput.addEventListener('focus', geolocate, true);
-
+  
+  hideAutoCompleteEdit();
+  showAutoCompleteEdit();
   initializeDate();
-
+  
   PhoneZipVlidation();
 }
 
