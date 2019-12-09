@@ -49,7 +49,7 @@ function initializeDate() {
   // console.log('max year', maxYear);
 
   for (let i = minYear; i >= maxYear; i--) {
-    console.log(i);
+    // console.log(i);
     const opt = document.createElement('option');
     opt.value = i;
     opt.innerHTML = i;
@@ -94,6 +94,14 @@ function initializeDate() {
   dateDay.addEventListener('change', changeDateDay, true);
 }
 
+let getDaysInMonth = function(month,year) {
+  // Here January is 1 based
+  //Day 0 is the last day in the previous month
+ return new Date(year, month, 0).getDate();
+// Here January is 0 based
+// return new Date(year, month+1, 0).getDate();
+};
+console.log(daysInMoth(04,2003));
 function changeDateMonth(event) {
   console.log(event);
   const selectedYear = document.getElementById('date-year').value;
@@ -101,21 +109,22 @@ function changeDateMonth(event) {
 
   if (selectedYear && selectedMonth) {
     // https://www.w3resource.com/javascript-exercises/javascript-date-exercise-3.php
-    const daysInMoth = getDaysInMonth(selectedMonth, selectedYear);
-
+    // const daysInMoth = getDaysInMonth(selectedMonth, selectedYear);
+    // console.log(daysInMoth);
     // set SelectDate max days
 
-    const dateDay = document.getElementById('date-day');
-    dateDay.innerHTML = '';
-    for (let i = 1; i <= daysInMoth; i++) {
-      const opt = document.createElement('option');
-      opt.value = i;
-      opt.innerHTML = i;
-      opt.setAttribute('data-number', i);
-      dateDay.appendChild(opt);
-    }
+    // const dateDay = document.getElementById('date-day');
+    // dateDay.innerHTML = '';
+    // for (let i = 1; i <= daysInMoth; i++) {
+    //   const opt = document.createElement('option');
+    //   opt.value = i;
+    //   opt.innerHTML = i;
+    //   opt.setAttribute('data-number', i);
+    //   dateDay.appendChild(opt);
+    // }
   }
 }
+
 
 function changeDateYear(event) {
   console.log(event);
@@ -146,13 +155,13 @@ function PhoneZipVlidation() {
     const x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
     e.target.value = !x[2] ? x[1] : `${x[1]} ${x[2]}${x[3] ? `-${x[3]}` : ''}`;
   });
-
-  $('#postal_code').change(() => {
+  let postalCode = document.getElementById('postal_code');
+  postalCode.addEventListener('change',(() => {
     console.log('change ');
     const loan_amt = document.getElementById('zip');
     loan_amt.value = loan_amt.value.replace(/[^0-9]/g, '');
-  });
-  $('#postal_code').on('keyup', function (e) {
+  }));
+  postalCode.addEventListener('keyup', function (e) {
     const $field = $(this);
     let val = this.value.replace(/\D/g, '');
     if (val.length > Number($field.attr('maxlength'))) {
