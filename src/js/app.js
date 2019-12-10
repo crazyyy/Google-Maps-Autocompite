@@ -254,28 +254,31 @@ $(document)
     // https://restcountries.eu/#api-endpoints-name
     // https://www.usps.com/business/web-tools-apis/welcome.htm
     // https://annexare.github.io/Countries/
-    // autocompliteJSON();
-    // function autocompliteJSON() {
+    // function countyJSON() {
+    //   const selectCounty = document.getElementById('county');
+    //   const selectCourt = document.getElementById('court');
+    //   const selectLEA = document.getElementById('lea');
     //   console.log('autocompliteJSON start');
+    //
     //   function AutocompliteCounty() {
     //     const ajax = new XMLHttpRequest();
-    
-    //     ajax.open('GET', `${window.location.href}/data/all-filtered.json`, true);
+    //     ajax.open('GET', `${window.location.href}/data/county.json`, true);
     //     ajax.onload = function () {
-    //       const list = JSON.parse(ajax.responseText).map((i) => {
-    //         const county = {
-    //           label: i.name,
-    //           value: i.alpha2Code,
-    //         };
-    //         console.log(county);
-    //         return country;
-    //       });
-    //       new Awesomplete($('#county'), {
+    //       const list = JSON.parse(ajax.responseText)
+    //         .map((i) => {
+    //           const county = {
+    //             label: i.name,
+    //             value: i.court,
+    //           };
+    //           console.log(county);
+    //           return county;
+    //         });
+    //       new Awesomplete(selectCounty, {
     //         list,
     //         minChars: 1,
     //         replace(suggestion) {
     //           this.input.setAttribute('data-name', suggestion.label);
-    //           this.input.setAttribute('data-code', suggestion.value);
+    //           this.input.setAttribute('data-code', suggestion.label);
     //           this.input.label = suggestion.label;
     //           this.input.value = suggestion.label;
     //         },
@@ -283,41 +286,46 @@ $(document)
     //     };
     //     ajax.send();
     //   }
+    //   AutocompliteCounty();
     // }
-    
     function countyJSON() {
       const selectCounty = document.getElementById('county');
-      console.log('autocompliteJSON start');
+      const selectCourt = document.getElementById('court');
+      const selectLEA = document.getElementById('lea');
+      let defaultCountyOption = document.createElement('option');
+      const сountyUrl = `${window.location.href}/data/county.json`;
       
-      function AutocompliteCounty() {
-        const ajax = new XMLHttpRequest();
-        ajax.open('GET', `${window.location.href}/data/county.json`, true);
-        ajax.onload = function () {
-          const list = JSON.parse(ajax.responseText)
-            .map((i) => {
-              const county = {
-                label: i.name,
-                value: i.court,
-              };
-              console.log(county);
-              return county;
-            });
-          new Awesomplete(selectCounty, {
-            list,
-            minChars: 1,
-            replace(suggestion) {
-              this.input.setAttribute('data-name', suggestion.label);
-              this.input.setAttribute('data-code', suggestion.value);
-              this.input.label = suggestion.label;
-              this.input.value = suggestion.label;
-            },
-          });
-        };
-        ajax.send();
-      }
-      AutocompliteCounty();
+      selectCounty.length = 0;
+      defaultCountyOption.text = 'Select County';
+      selectCounty.add(defaultCountyOption);
+      selectCounty.selectedIndex = 0;
+  
+      const request = new XMLHttpRequest();
+      request.open('GET', сountyUrl, true);
+  
+      request.onload = function() {
+        if (request.status === 200) {
+          const data = JSON.parse(request.responseText);
+          let option;
+          for (let i = 0; i < data.length; i++) {
+            option = document.createElement('option');
+            option.text = data[i].name;
+            option.value = data[i].name;
+            selectCounty.add(option);
+          }
+        } else {
+          // Reached the server, but it returned an error
+        }
+      };
+      request.onerror = function() {
+        console.error('An error occurred fetching the JSON from ' + url);
+      };
+  
+      request.send();
+    
     }
     countyJSON();
+    
     $('body')
       .on('click', '#submit', (e) => {
         e.preventDefault();
