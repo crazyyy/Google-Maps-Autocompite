@@ -20,7 +20,7 @@
         <div class="flex-container">
           <label>Phone</label>
           <div class="flex-item c-2column">
-            <input id="phone" value="888 888-8888" name="phone" type="tel" placeholder="Phone" pattern="[0-9]{3} [0-9]{3}(-)[0-9]{4}" maxlength="12" title="Ten digits code" required />
+            <input id="phone" value="" name="phone" type="tel" placeholder="888 888-8888" pattern="[0-9]{3} [0-9]{3}(-)[0-9]{4}" maxlength="12" title="Ten digits code" required />
             <i class="errorTxt"></i>
           </div>
           <div class="flex-item c-2column">
@@ -98,14 +98,15 @@
         <input class="w-100" name="county" id="county" type="text" placeholder="Select County">
         <label>Law Enforcement Agency (LEA): *</label>
         <select class="w-100" name="lea" id="lea" disabled>
-              <option value="" disabled selected>Select Court</option>
+              <option value="" selected>Select Court</option>
               <option value="Alameda Court">Alameda Court</option>
             </select>
       </div>
       <div class="flex-item c-2column">
         <label>Court of Violation: *</label>
         <select class="w-100" name="court" id="court" disabled>
-              <option value="" disabled selected>Select Court</option>
+              <option value="" selected>Select Court</option>
+              <option value="ssd" selected>Court #1</option>
             </select>
       </div>
     </div>
@@ -198,7 +199,7 @@
   </div>
 
   <script src="assets/js/vendor.min.js" defer></script>
-  <script src="assets/js/awesomplete.js" defer></script>
+  <!-- <script src="assets/js/awesomplete.js" defer></script> -->
   <script src="assets/js/app.js" defer></script>
 </body>
 

@@ -1,5 +1,6 @@
-import './awesomplete'
-import {  isValidLicense, isValidOrReturnDescription} from './drive-license-validation'
+// import './awesomplete';
+import { isValidLicense, isValidOrReturnDescription } from './drive-license-validation';
+
 $(document).ready(() => {
   /** INIT GOOGLE AUTOCOMPLEET */
   let placeSearch;
@@ -231,49 +232,103 @@ $(document).ready(() => {
   // https://restcountries.eu/#api-endpoints-name
   // https://www.usps.com/business/web-tools-apis/welcome.htm
   // https://annexare.github.io/Countries/
-autocompliteJSON()
-  function autocompliteJSON() {
-    console.log('autocompliteJSON start')
-    function AutocompliteCountry() {
-      const ajax = new XMLHttpRequest();
+  // autocompliteJSON();
+  // function autocompliteJSON() {
+  //   console.log('autocompliteJSON start');
+  //   function AutocompliteCountry() {
+  //     const ajax = new XMLHttpRequest();
 
-      ajax.open('GET', `${window.location.href}/data/all-filtered.json`, true);
-      ajax.onload = function () {
-        const list = JSON.parse(ajax.responseText).map((i) => {
-          const country = {
-            label: i.name,
-            value: i.alpha2Code,
-          };
-          console.log(country)
-          return country;
-        });
-        new Awesomplete($('#country'), {
-          list,
-          minChars: 1,
-          replace(suggestion) {
-            this.input.setAttribute('data-name', suggestion.label);
-            this.input.setAttribute('data-code', suggestion.value);
-            this.input.label = suggestion.label;
-            this.input.value = suggestion.label;
-          },
-        });
-      };
-      ajax.send();
-    }
-  }
-  $('body').on('click', '#submit', function(e){
-    e.preventDefaults();
-  })
+  //     ajax.open('GET', `${window.location.href}/data/all-filtered.json`, true);
+  //     ajax.onload = function () {
+  //       const list = JSON.parse(ajax.responseText).map((i) => {
+  //         const country = {
+  //           label: i.name,
+  //           value: i.alpha2Code,
+  //         };
+  //         console.log(country);
+  //         return country;
+  //       });
+  //       new Awesomplete($('#country'), {
+  //         list,
+  //         minChars: 1,
+  //         replace(suggestion) {
+  //           this.input.setAttribute('data-name', suggestion.label);
+  //           this.input.setAttribute('data-code', suggestion.value);
+  //           this.input.label = suggestion.label;
+  //           this.input.value = suggestion.label;
+  //         },
+  //       });
+  //     };
+  //     ajax.send();
+  //   }
+  // }
+  $('body').on('click', '#submit', (e) => {
+    e.preventDefault();
+    FormValidation(e);
+  });
 
-  $('#address').on('submit', function(e){
-    e.preventDefaults();
-
-
-  })
+  $('#address').on('submit', (e) => {
+    e.preventDefault();
+    FormValidation(e);
+  });
 
   function FormValidation(event) {
-let isValid = false;
-console.log('form valitaion start')
-  }
+    let isValid = false;
+    console.log('form valitaion start');
 
+    const $form = $('form#address');
+    const selectorsForValidation = $form.find('select, input, textare');
+    const $selectorsForValidation = [...selectorsForValidation];
+    console.log($selectorsForValidation);
+    $selectorsForValidation.forEach((element) => {
+      const $element = $(element);
+      const elementId = $element.attr('id');
+      const $closestError = $element.closest('.flex-item').find('.errorTxt')
+      console.warn(elementId);
+      console.log($element);
+      const elementValue = $element.val();
+
+
+      //example
+      if (!elementValue) {
+console.error('element without value')
+$closestError.html(`element without value`)
+isValid = false;
+return false // stop and exit validation
+      }
+
+            console.log('$element value', elementValue);
+      const elementValueLength = elementValue.length;
+      console.log('$element value', elementValueLength);
+
+            if (elementValueLength > 3) {
+console.error('element lenght must be more that 3 chars....')
+$closestError.html(`element lenght must be more that 3 chars....`)
+isValid = false;
+return false // stop and exit validation
+      }
+
+      // example custom validation
+      const $postal_code = $('#postal_code')
+      const postal_code_value = $('#postal_code').val()
+      const postal_code_pattern = new RegExp('^\\d+$'); // regexp pattern
+      console.log(postal_code_pattern.test(postal_code_value));
+      if (postal_code_pattern.test(postal_code_value) === false) {
+console.error('element must contain only numbers')
+$closestError.html(`element must contain only numbers`)
+isValid = false;
+return false // stop and exit validation
+      }
+
+
+      // if all validations is ok - set isValid == true
+
+      isValid == true
+    });
+
+
+    if (!isValid) { return false; }
+
+    console.log('form valid, proceed submit data');
+  }
 });
