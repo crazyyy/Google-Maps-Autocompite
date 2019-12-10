@@ -293,12 +293,17 @@ $(document)
       const selectCourt = document.getElementById('court');
       const selectLEA = document.getElementById('lea');
       let defaultCountyOption = document.createElement('option');
+      let defaultCourtOption = document.createElement('option');
       const сountyUrl = `${window.location.href}/data/county.json`;
       
       selectCounty.length = 0;
+      selectCourt.length = 0;
       defaultCountyOption.text = 'Select County';
+      defaultCourtOption.text = 'Select Court';
       selectCounty.add(defaultCountyOption);
+      selectCourt.add(defaultCourtOption);
       selectCounty.selectedIndex = 0;
+      selectCourt.selectedIndex = 0;
   
       const request = new XMLHttpRequest();
       request.open('GET', сountyUrl, true);
@@ -311,6 +316,8 @@ $(document)
             option = document.createElement('option');
             option.text = data[i].name;
             option.value = data[i].name;
+            option.court = data[i].court;
+            console.log(option.court);
             selectCounty.add(option);
           }
         } else {
