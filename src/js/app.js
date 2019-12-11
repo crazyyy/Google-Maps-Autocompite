@@ -289,21 +289,25 @@ $(document)
     //   AutocompliteCounty();
     // }
     function countyJSON() {
+      const сountyUrl = `${window.location.href}/data/county.json`;
       const selectCounty = document.getElementById('county');
       const selectCourt = document.getElementById('court');
       const selectLEA = document.getElementById('lea');
       let defaultCountyOption = document.createElement('option');
       let defaultCourtOption = document.createElement('option');
-      const сountyUrl = `${window.location.href}/data/county.json`;
+      let defaultLEAOption = document.createElement('option');
       
       selectCounty.length = 0;
       selectCourt.length = 0;
       defaultCountyOption.text = 'Select County';
       defaultCourtOption.text = 'Select Court';
+      defaultLEAOption.text = 'Select LEA';
       selectCounty.add(defaultCountyOption);
       selectCourt.add(defaultCourtOption);
+      selectCourt.add(defaultLEAOption);
       selectCounty.selectedIndex = 0;
       selectCourt.selectedIndex = 0;
+      selectLEA.selectedIndex = 0;
   
       const request = new XMLHttpRequest();
       request.open('GET', сountyUrl, true);
@@ -311,36 +315,80 @@ $(document)
       request.onload = function() {
         if (request.status === 200) {
           const data = JSON.parse(request.responseText);
-          let option;
+          console.log(data);
+          let optionCounty;
+          
           for (let i = 0; i < data.length; i++) {
-            option = document.createElement('option');
-            option.text = data[i].name;
-            option.value = data[i].name;
-            option.court = data[i].court;
-            console.log(option.court);
-            selectCounty.add(option);
+            optionCounty = document.createElement('option');
+            optionCounty.text = data[i].name;
+            optionCounty.value = data[i].name;
+            optionCounty.court = data[i].court;
+            selectCounty.add(optionCounty);
           }
+          // console.log(data);
+          selectCounty.addEventListener('change', function() {
+            let result = [];
+            const options = selectCounty.querySelectorAll('option');
+            const count = options.length;
+            const selectedValue = selectCounty.value;
+            console.log(selectedValue);
+            // console.log(data[0].court);
+  
+            function getCourtValue(array, keyText) {
+              for (let i = 0; i < array.length; i++) {
+                console.log(array[i].name);
+                if (array[i].name == keyText) {
+                  // $('#name').text(array[i].value);
+                  return array[i].court;
+                }
+              }
+            }
+  
+            console.log(getCourtValue(data, selectedValue));
+            
+            if(typeof(count) === 'undefined' || count < 2) {
+              addActivityItem();
+            }
+          });
         } else {
-          // Reached the server, but it returned an error
+          console.log('there is no county.json file');
         }
+        
+
+        // selectCounty.addEventListener('change', function() {
+        //   // if(selectCounty.value == 'Los Angeles') {
+        //   if(selectCounty.value == 'Los Angeles') {
+        //     enableLEA();
+        //   } else {
+        //     disableLEA();
+        //   }
+        //   console.log(selectCounty.value);
+        // });
+        //
+        // function enableLEA() {
+        //   console.log('Los Angeles selected');
+        //   selectLEA.disabled = false;
+        // }
+        // function disableLEA() {
+        //   selectLEA.disabled = true;
+        // }
+  
       };
       request.onerror = function() {
         console.error('An error occurred fetching the JSON from ' + url);
       };
-  
+      
       request.send();
     
     }
     countyJSON();
     
-    $('body')
-      .on('click', '#submit', (e) => {
+    $('body').on('click', '#submit', (e) => {
         e.preventDefault();
         FormValidation(e);
       });
     
-    $('#address')
-      .on('submit', (e) => {
+    $('#address').on('submit', (e) => {
         e.preventDefault();
         FormValidation(e);
       });
