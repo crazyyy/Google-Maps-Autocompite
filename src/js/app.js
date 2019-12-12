@@ -363,9 +363,9 @@ $(document)
                 const selectedCourtVal = selectCourt.value;
                 let listLEAOptions = getLEAValue(LEAArray, selectedCourtVal);
                 console.log(selectedCourtVal);
-                console.log(listLEAOptions.length);
+                console.log(selectedCourtVal.length);
                 // if ((selectedCourtVal !== 0) || (selectedCourtVal !== '')) {
-                if ((selectedCourtVal !== 0) || (selectedCourtVal !== '')) {
+                if (selectedCourtVal.length !== 0) {
                   resetSelectElement(selectLEA);
                   enableSelectElement(selectLEA);
                   for (let i = 0; i < listLEAOptions.length; i++) {
