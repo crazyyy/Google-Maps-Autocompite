@@ -200,52 +200,37 @@ $(document)
     const $edit = $('#action-edit');
     const $autocomplete = $('#autocomplete-edit');
     
-    $('body')
-      .on('click', '#action-save', (e) => {
+    $('body').on('click', '#action-save', (e) => {
         if (!$autocomplete.hasClass('disabled')) {
-          $('#autocomplete')
-            .prop('disabled', true);
-          $autocomplete.find('input')
-            .prop('disabled', true);
-          $autocomplete.find('select')
-            .prop('disabled', true);
+          $('#autocomplete').prop('disabled', true);
+          $autocomplete.find('input').prop('disabled', true);
+          $autocomplete.find('select').prop('disabled', true);
           $autocomplete.addClass('disabled');
           $autocomplete.hide('slow');
         }
       });
     
-    $('body')
-      .on('click', '#action-edit', (e) => {
+    $('body').on('click', '#action-edit', (e) => {
         if ($autocomplete.hasClass('disabled')) {
-          $('#autocomplete')
-            .prop('disabled', false);
-          $autocomplete.find('input')
-            .prop('disabled', false);
-          $autocomplete.find('select')
-            .prop('disabled', false);
+          $('#autocomplete').prop('disabled', false);
+          $autocomplete.find('input').prop('disabled', false);
+          $autocomplete.find('select').prop('disabled', false);
           $autocomplete.removeClass('disabled');
           $autocomplete.show('slow');
         }
       });
     
-    $('body')
-      .on('click', '#action-reset', (e) => {
+    $('body').on('click', '#action-reset', (e) => {
         if ($autocomplete.hasClass('disabled')) {
-          $('#autocomplete')
-            .prop('disabled', false);
-          $autocomplete.find('input')
-            .prop('disabled', false);
-          $autocomplete.find('select')
-            .prop('disabled', false);
+          $('#autocomplete').prop('disabled', false);
+          $autocomplete.find('input').prop('disabled', false);
+          $autocomplete.find('select').prop('disabled', false);
           $autocomplete.removeClass('disabled');
           $autocomplete.show('slow');
         }
-        $('#autocomplete')
-          .val('');
-        $autocomplete.find('input')
-          .val('');
-        $autocomplete.find('select')
-          .val('');
+        $('#autocomplete').val('');
+        $autocomplete.find('input').val('');
+        $autocomplete.find('select').val('');
       });
     
     
@@ -290,89 +275,127 @@ $(document)
     // }
     function countyJSON() {
       const сountyUrl = `${window.location.href}/data/county.json`;
-      const selectCounty = document.getElementById('county');
-      const selectCourt = document.getElementById('court');
-      const selectLEA = document.getElementById('lea');
-      let defaultCountyOption = document.createElement('option');
-      let defaultCourtOption = document.createElement('option');
-      let defaultLEAOption = document.createElement('option');
-      
-      selectCounty.length = 0;
-      selectCourt.length = 0;
-      defaultCountyOption.text = 'Select County';
-      defaultCourtOption.text = 'Select Court';
-      defaultLEAOption.text = 'Select LEA';
-      selectCounty.add(defaultCountyOption);
-      selectCourt.add(defaultCourtOption);
-      selectCourt.add(defaultLEAOption);
-      selectCounty.selectedIndex = 0;
-      selectCourt.selectedIndex = 0;
-      selectLEA.selectedIndex = 0;
-  
+      // create select fields for County/Court of Violation
+      function setDefaultSelect(idElement, position = 0, text, value = '') {
+        const selectElement = document.getElementById(idElement);
+        const firstDefaultOption = document.createElement('option');
+        selectElement.length = position;
+        firstDefaultOption.text = text;
+        firstDefaultOption.value = value;
+        selectElement.add(firstDefaultOption);
+        selectElement.selectedIndex = 0;
+        return selectElement;
+      }
+      const selectCounty = setDefaultSelect('county', 0, 'Select County');
+      const selectCourt = setDefaultSelect('court', 0, 'Select Court');
+      const selectLEA = setDefaultSelect('lea', 0, 'Select LEA');
+      // function Get Court name from array county.json
+      function getCourtValue(obj, keyText) {
+        if (Array.isArray(obj)) {
+          for (let i = 0; i < obj.length; i++) {
+            if (obj[i].name === keyText) {
+              return obj[i].court;
+            }
+          }
+        }
+      }
+      // function Get LEA name from array county.json
+      function getLEAValue(array, keyText) {
+        for (let i = 0; i < array.length; i++) {
+          if (array[i].courtName === keyText) {
+            return array[i].lea;
+          }
+        }
+      }
+      // function reset selected option in select to 1st option, with dafault value=""
+      function resetSelectElement(el) {
+        el.options.length = 1;
+        el.selectedIndex = 1; // first option is selected, or// -1 for no option selected
+      }
+      // function to enable select field
+      function enableSelectElement(field) {
+        field.disabled = false;
+      }
+      // function to disable select field
+      function disableSelectElement(field) {
+        field.disabled = true;
+      }
+      // function to create option list to into select
+      function createOptionsList(obj, selectField) {
+        let optionCounty;
+        for (let i = 0; i < obj.length; i++) {
+          optionCounty = document.createElement('option');
+          optionCounty.text = obj[i].name;
+          optionCounty.value = obj[i].name;
+          selectField.add(optionCounty);
+        }
+      }
       const request = new XMLHttpRequest();
+      // get data from сountyUrl (county.json) by AJAX request
       request.open('GET', сountyUrl, true);
-  
-      request.onload = function() {
+      request.onload = function () {
         if (request.status === 200) {
           const data = JSON.parse(request.responseText);
-          console.log(data);
-          let optionCounty;
-          
-          for (let i = 0; i < data.length; i++) {
-            optionCounty = document.createElement('option');
-            optionCounty.text = data[i].name;
-            optionCounty.value = data[i].name;
-            optionCounty.court = data[i].court;
-            selectCounty.add(optionCounty);
-          }
-          // console.log(data);
-          selectCounty.addEventListener('change', function() {
-            let result = [];
-            const options = selectCounty.querySelectorAll('option');
-            const count = options.length;
-            const selectedValue = selectCounty.value;
-            console.log(selectedValue);
-            // console.log(data[0].court);
-  
-            function getCourtValue(array, keyText) {
-              for (let i = 0; i < array.length; i++) {
-                console.log(array[i].name);
-                if (array[i].name == keyText) {
-                  // $('#name').text(array[i].value);
-                  return array[i].court;
-                }
+          createOptionsList(data, selectCounty);//Build Select County options list
+          let courtArray = [];
+          let LEAArray = [];
+          // add event when select County
+          selectCounty.addEventListener('change', function () {
+            const selectedCountyVal = selectCounty.value;
+            resetSelectElement(selectCourt);
+            enableSelectElement(selectCourt); //enable select id = "court"
+            if ((selectedCountyVal.length !== 0) && (selectCounty.value !== 'Los Angeles')) {
+              disableSelectElement(selectLEA);
+              courtArray = getCourtValue(data, selectedCountyVal); // get court array from json
+              console.log(Array.isArray(courtArray));
+              for (let i = 0; i < courtArray.length; i++) { //build select options for court select filed
+                const optionCourt = document.createElement('option');
+                optionCourt.text = courtArray[i];
+                optionCourt.value = courtArray[i];
+                selectCourt.add(optionCourt);
               }
-            }
-  
-            console.log(getCourtValue(data, selectedValue));
-            
-            if(typeof(count) === 'undefined' || count < 2) {
-              addActivityItem();
+            } else if (selectCounty.value == 'Los Angeles') {
+              resetSelectElement(selectCourt);
+              enableSelectElement(selectCourt);
+             
+              LEAArray = getCourtValue(data, selectedCountyVal);
+              selectCourt.addEventListener('change', function () {
+                const selectedCourtVal = selectCourt.value;
+                let listLEAOptions = getLEAValue(LEAArray, selectedCourtVal);
+                console.log(selectedCourtVal);
+                console.log(listLEAOptions.length);
+                // if ((selectedCourtVal !== 0) || (selectedCourtVal !== '')) {
+                if ((selectedCourtVal !== 0) || (selectedCourtVal !== '')) {
+                  resetSelectElement(selectLEA);
+                  enableSelectElement(selectLEA);
+                  for (let i = 0; i < listLEAOptions.length; i++) {
+                    let optionCourt = document.createElement('option');
+                    optionCourt.text = listLEAOptions[i];
+                    optionCourt.value = listLEAOptions[i];
+                    selectLEA.add(optionCourt);
+                  }
+                }else {
+                  resetSelectElement(selectLEA);
+                  disableSelectElement(selectLEA);
+                }
+              });
+              
+              for (let i = 0; i < LEAArray.length; i++) { //build select options for court select filed
+                const optionCourt = document.createElement('option');
+                const optionLEA = document.createElement('option');
+                optionCourt.text = LEAArray[i].courtName;
+                optionCourt.value = LEAArray[i].courtName;
+                optionLEA.text = LEAArray[i].lea;
+                selectCourt.add(optionCourt);
+              }
+            } else {
+              disableSelectElement(selectCourt);
+              disableSelectElement(selectLEA);
             }
           });
         } else {
           console.log('there is no county.json file');
         }
-        
-
-        // selectCounty.addEventListener('change', function() {
-        //   // if(selectCounty.value == 'Los Angeles') {
-        //   if(selectCounty.value == 'Los Angeles') {
-        //     enableLEA();
-        //   } else {
-        //     disableLEA();
-        //   }
-        //   console.log(selectCounty.value);
-        // });
-        //
-        // function enableLEA() {
-        //   console.log('Los Angeles selected');
-        //   selectLEA.disabled = false;
-        // }
-        // function disableLEA() {
-        //   selectLEA.disabled = true;
-        // }
-  
       };
       request.onerror = function() {
         console.error('An error occurred fetching the JSON from ' + url);

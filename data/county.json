@@ -155,7 +155,8 @@
     "name": "Los Angeles",
     "court": [
       {
-        "Airport (19463 or 19405)": [
+        "courtName": "Airport (19463 or 19405)",
+        "lea": [
           "CHP Red Light Camera Project - 7650",
           "California Highway Patrol - 1999",
           "Housing Authority - 7058",
@@ -170,7 +171,8 @@
         ]
       },
       {
-        "Alhambra (19463 or 19410)": [
+        "courtName": "Alhambra (19463 or 19410)",
+        "lea": [
           "Animal Control - 7203",
           "Arcadia Police Department - 1902",
           "California Highway Patrol - 1999",
@@ -190,7 +192,8 @@
         ]
       },
       {
-        "Bellflower (Cerritos) (19463 or 19466)": [
+        "courtName": "Bellflower (Cerritos) (19463 or 19466)",
+        "lea": [
           "Animal Control - 7203",
           "Bellflower, City of - 7534",
           "California Highway Patrol - 1999",
@@ -206,7 +209,8 @@
         ]
       },
       {
-        "Beverly Hills (19463 or 19420)": [
+        "courtName": "Beverly Hills (19463 or 19420)",
+        "lea": [
           "Airport Police - 1943",
           "Beverly Hills Police Department - 1910",
           "Beverly Hills Red Light Traffic Citation Project - 7640",
@@ -220,7 +224,8 @@
         ]
       },
       {
-        "Burbank (19463 or 19425 or 19112)": [
+        "courtName": "Burbank (19463 or 19425 or 19112)",
+        "lea": [
           "Burbank Police Department - 1912",
           "Burbank/Glendale/Pasadena Airport - 1981",
           "California Highway Patrol - 1999",
@@ -230,7 +235,8 @@
         ]
       },
       {
-        "Calabasas Courthouse (19463)": [
+        "courtName": "Calabasas Courthouse (19463)",
+        "lea": [
           "Animal Control - 7203",
           "California Department of Fish and Game - 7204",
           "California Highway Patrol - 1999",
@@ -240,13 +246,15 @@
         ]
       },
       {
-        "Catalina (19463 or 19610)": [
+        "courtName": "Catalina (19463 or 19610)",
+        "lea": [
           "California Department of Fish and Game - 7204",
           "Catalina Island - 7253"
         ]
       },
       {
-        "Central Arraignment Courthouse (19463)": [
+        "courtName": "Central Arraignment Courthouse (19463)",
+        "lea": [
           "California Parks and Recreation - 7205",
           "California State University Los Angeles - 7207",
           "Dept of Alcoholic Beverage Control - 7221",
@@ -264,7 +272,8 @@
         ]
       },
       {
-        "Chatsworth (19463 or 19432)": [
+        "courtName": "Chatsworth (19463 or 19432)",
+        "lea": [
           "CHP Red Light Camera Project - 7650",
           "California Highway Patrol - 1999",
           "California State University Northridge - 7208",
@@ -282,7 +291,8 @@
         ]
       },
       {
-        "Compton (19463 or 19453 or 19435)": [
+        "courtName": "Compton (19463 or 19453 or 19435)",
+        "lea": [
           "Animal Control - 7203",
           "Bell Gardens Police Department - 1909",
           "Bell Police Department - 1907",
@@ -310,7 +320,8 @@
         ]
       },
       {
-        "Culver City Courthouse (19463)": [
+        "courtName": "Culver City Courthouse (19463)",
+        "lea": [
           "Animal Control - 7203",
           "California Department of Fish and Game - 7204",
           "California Highway Patrol - 1999",
@@ -326,7 +337,8 @@
         ]
       },
       {
-        "Downey (19463 or 19440)": [
+        "courtName": "Downey (19463 or 19440)",
+        "lea": [
           "Animal Control - 7203",
           "Bell Gardens Police Department - 1909",
           "Bellflower, City of - 7534",
@@ -345,7 +357,8 @@
         ]
       },
       {
-        "East Los Angeles (19463 or 19443)": [
+        "courtName": "East Los Angeles (19463 or 19443)",
+        "lea": [
           "Bell Gardens Police Department - 1909",
           "California Highway Patrol - 1999",
           "City of Commerce RLC Project - 7688",
@@ -362,7 +375,8 @@
         ]
       },
       {
-        "El Monte (Rio Hondo) (19463 or 19446)": [
+        "courtName": "El Monte (Rio Hondo) (19463 or 19446)",
+        "lea": [
           "Animal Control - 7203",
           "Baldwin Park Police Department - 1906",
           "Baldwin Red Light Camera Project - 7684",
@@ -381,7 +395,8 @@
         ]
       },
       {
-        "Glendale (19463 or 19111 or 19450)": [
+        "courtName": "Glendale (19463 or 19111 or 19450)",
+        "lea": [
           "Burbank Police Department - 1912",
           "Burbank/Glendale/Pasadena Airport - 1981",
           "California Highway Patrol - 1999",
@@ -395,7 +410,8 @@
         ]
       },
       {
-        "Holywood (19463 or 19495)": [
+        "courtName": "Holywood (19463 or 19495)",
+        "lea": [
           "LA City Park Ranger - 7053",
           "LA County Office of Public Safety - 7054",
           "Los Angeles Police Department - 1942",
@@ -403,7 +419,8 @@
         ]
       },
       {
-        "Huntinton Park (19463 or 19480)": [
+        "courtName": "Huntinton Park (19463 or 19480)",
+        "lea": [
           "Animal Control - 7203",
           "Bell Gardens Police Department - 1909",
           "Bell Police Department - 1907",
@@ -424,7 +441,8 @@
         ]
       },
       {
-        "Inglewood (19463 or 19455)": [
+        "courtName": "Inglewood (19463 or 19455)",
+        "lea": [
           "California Highway Patrol - 1999",
           "City of Hawthorne Red Light Camera Project - 7673",
           "El Segundo Police Department - 1923",
@@ -445,7 +463,8 @@
         ]
       },
       {
-        "Lancaster (Michael Antonovich Antelope Valley) (19463 or 19413)": [
+        "courtName": "Lancaster (Michael Antonovich Antelope Valley) (19463 or 19413)",
+        "lea": [
           "California Highway Patrol - 1999",
           "City of Lancaster - 7311",
           "City of Lancaster RLC Project - 7685",
@@ -454,7 +473,8 @@
         ]
       },
       {
-        "Long Beach - Governor George Deukmejian Courthouse (19463 or 19460)": [
+        "courtName": "Long Beach - Governor George Deukmejian Courthouse (19463 or 19460)",
+        "lea": [
           "Airport Police - 1943",
           "Animal Control - 7203",
           "California Department of Fish and Game - 7204",
@@ -476,7 +496,8 @@
         ]
       },
       {
-        "Los Angeles Metropolitan Superior Court (19463)": [
+        "courtName": "Los Angeles Metropolitan Superior Court (19463)",
+        "lea": [
           "Airport Police - 1943",
           "Alhambra Police Department - 1901",
           "Azusa Police Department - 1905",
@@ -531,7 +552,8 @@
         ]
       },
       {
-        "Lynwood Regional Justice Center (19463)": [
+        "courtName": "Lynwood Regional Justice Center (19463)",
+        "lea": [
           "Animal Control - 7203",
           "California Highway Patrol - 1999",
           "California State Dominguez - 0043",
@@ -544,7 +566,8 @@
         ]
       },
       {
-        "Malibu (19463 or 19472)": [
+        "courtName": "Malibu (19463 or 19472)",
+        "lea": [
           "Animal Control - 7203",
           "California Department of Fish and Game - 7204",
           "California Highway Patrol - 1999",
@@ -555,7 +578,8 @@
         ]
       },
       {
-        "Monrovia (19463)": [
+        "courtName": "Monrovia (19463)",
+        "lea": [
           "Animal Control - 7203",
           "Arcadia Police Department - 1902",
           "California Highway Patrol - 1999",
@@ -567,7 +591,8 @@
         ]
       },
       {
-        "Pasadena (19463 or 19470)": [
+        "courtName": "Pasadena (19463 or 19470)",
+        "lea": [
           "Alhambra Police Department - 1901",
           "Animal Control - 7203",
           "Arcadia Police Department - 1902",
@@ -591,7 +616,8 @@
         ]
       },
       {
-        "Pomona (19463 or 19110 or 19475)": [
+        "courtName": "Pomona (19463 or 19110 or 19475)",
+        "lea": [
           "Anaheim Police Department - 7399",
           "Azusa Police Department - 1905",
           "Baldwin Park Police Department - 1906",
@@ -615,7 +641,8 @@
         ]
       },
       {
-        "Redondo Beach Courthouse (19463)": [
+        "courtName": "Redondo Beach Courthouse (19463)",
+        "lea": [
           "California Highway Patrol - 1999",
           "El Camino College Police Department - 7099",
           "Gardena Police Department - 1924",
@@ -629,7 +656,8 @@
         ]
       },
       {
-        "San Fernando (19463 or 19496)": [
+        "courtName": "San Fernando (19463 or 19496)",
+        "lea": [
           "Animal Control - 7203",
           "CHP Red Light Camera Project - 7650",
           "California Highway Patrol - 1999",
@@ -650,7 +678,8 @@
         ]
       },
       {
-        "San Pedro (19463 or 19497)": [
+        "courtName": "San Pedro (19463 or 19497)",
+        "lea": [
           "CHP Red Light Camera Project - 7650",
           "California Department of Fish and Game - 7204",
           "California Highway Patrol - 1999",
@@ -673,7 +702,8 @@
         ]
       },
       {
-        "Santa Clarita (Newhall) (19463 or 19468)": [
+        "courtName": "Santa Clarita (Newhall) (19463 or 19468)",
+        "lea": [
           "Animal Control - 7203",
           "California Department of Fish and Game - 7204",
           "California Highway Patrol - 1999",
@@ -687,7 +717,8 @@
         ]
       },
       {
-        "Santa Monica (19463 or 19484)": [
+        "courtName": "Santa Monica (19463 or 19484)",
+        "lea": [
           "Animal Control - 7203",
           "California Department of Fish and Game - 7204",
           "California Highway Patrol - 1999",
@@ -706,7 +737,8 @@
         ]
       },
       {
-        "South Gate (19463)": [
+        "courtName": "South Gate (19463)",
+        "lea": [
           "Bell Gardens Police Department - 1909",
           "Bell Police Department - 1907",
           "California Highway Patrol - 1999",
@@ -721,7 +753,8 @@
         ]
       },
       {
-        "Torrance (19463 or 19486)": [
+        "courtName": "Torrance (19463 or 19486)",
+        "lea": [
           "Animal Control - 7203",
           "California Department of Fish and Game - 7204",
           "California Highway Patrol - 1999",
@@ -745,7 +778,8 @@
         ]
       },
       {
-        "Van Nuys (19463 or 19498)": [
+        "courtName": "Van Nuys (19463 or 19498)",
+        "lea": [
           "Burbank Police Department - 1912",
           "CHP Red Light Camera Project - 7650",
           "California Department of Fish and Game - 7204",
@@ -780,7 +814,8 @@
         ]
       },
       {
-        "West Covina (Citrus) (19463 or 19430)": [
+        "courtName": "West Covina (Citrus) (19463 or 19430)",
+        "lea": [
           "Arcadia Police Department - 1902",
           "Azusa Police Department - 1905",
           "Baldwin Park Police Department - 1906",
@@ -812,7 +847,8 @@
         ]
       },
       {
-        "West Los Angeles (19463 or 19499)": [
+        "courtName": "West Los Angeles (19463 or 19499)",
+        "lea": [
           "Beverly Hills Police Department - 1910",
           "Burbank Police Department - 1912",
           "California Department of Fish and Game - 7204",
@@ -839,7 +875,8 @@
         ]
       },
       {
-        "West Valley Ticket Payment Office (19463)": [
+        "courtName": "West Valley Ticket Payment Office (19463)",
+        "lea": [
           "California Highway Patrol - 1999",
           "Housing Authority - 7058",
           "LA Country Sheriff - 1900",
@@ -852,7 +889,8 @@
         ]
       },
       {
-        "Whittier (19463 or 19490)": [
+        "courtName": "Whittier (19463 or 19490)",
+        "lea": [
           "Animal Control - 7203",
           "CHP Red Light Camera Project - 7653",
           "California Highway Patrol - 1999",
